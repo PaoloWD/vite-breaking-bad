@@ -1,13 +1,13 @@
 <template>
   <div class="card">
-    <img :src="character.image" class="card-img-top" alt="..." />
+    <img :src="singleCharacter.image" class="card-img-top" alt="..." />
     <div class="card-body">
-      <h5 class="card-title">{{ character.name }}</h5>
+      <h5 class="card-title">{{ singleCharacter.name }}</h5>
       <p class="card-text">
-        {{ character.species }}
+        {{ singleCharacter.species }}
       </p>
       <p class="card-text">
-        {{ character.status }}
+        {{ singleCharacter.status }}
       </p>
       <a href="#" class="btn btn-primary">Details</a>
     </div>
@@ -17,7 +17,7 @@
 export default {
   name: "card",
   props: {
-    character: {
+    singleCharacter: {
       type: Object,
     },
   },

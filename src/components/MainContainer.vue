@@ -6,7 +6,7 @@
         v-for="(singleCard, index) in store.characterList"
         :key="index"
       >
-        <Card :character="singleCard"></Card>
+        <Card :singleCharacter="singleCard"></Card>
       </div>
     </div>
   </div>
