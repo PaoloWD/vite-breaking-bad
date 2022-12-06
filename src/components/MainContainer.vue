@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row g-5">
       <div
         class="col col-lg-3 col-md-4 col-sm-6 col-xs-12"
         v-for="(singleCard, index) in store.characterList"
