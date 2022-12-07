@@ -1,6 +1,6 @@
 <template>
   <div class="text-center fw-bold mb-3">
-    Trovati {{ store.info.count }} personaggi
+    <TotalCount></TotalCount>
   </div>
   <div
     class="bg-black text-white d-flex justify-content-between gap-5 p-3 mb-5"
@@ -74,8 +74,10 @@
   </form>
 </template>
 <script>
+import TotalCount from "../components/TotalCount.vue";
 import { store } from "../store";
 export default {
+  components: { TotalCount },
   data() {
     return {
       store,
