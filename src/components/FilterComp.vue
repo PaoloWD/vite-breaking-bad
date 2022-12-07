@@ -1,8 +1,15 @@
 <template>
-  <div class="text-center fw-bold mb-3">
-    <TotalCount></TotalCount>
-  </div>
   <div
+    class="d-flex justify-content-center gap-3 align-items-center fw-bold mb-3"
+  >
+    <TotalCount></TotalCount>
+    <button v-on:click="isHidden = !isHidden" class="btn btn-primary">
+      Filters
+    </button>
+  </div>
+
+  <div
+    v-if="!isHidden"
     class="bg-black text-white d-flex justify-content-between gap-5 p-3 mb-5"
   >
     <div>
@@ -20,7 +27,7 @@
       <div v-for="specie in speciesList">{{ specie }}</div>
     </div>
   </div>
-  <form action="" @submit.prevent="searchClick">
+  <form v-if="!isHidden" action="" @submit.prevent="searchClick">
     <div class="row">
       <div class="col">
         <input
@@ -81,6 +88,7 @@ export default {
   data() {
     return {
       store,
+      isHidden: true,
       filters: {
         name: "",
         status: "",
