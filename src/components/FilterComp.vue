@@ -1,17 +1,19 @@
 <template>
   <div>Trovati {{ store.info.count }} personaggi</div>
-  <div class="bg-black text-white d-flex gap-3 p-3">
+  <div class="bg-black text-white d-flex gap-5 p-3">
     <div>
-      Ci sono {{ statusList.length }} stati e sono:
+      numero stati: {{ statusList.length }}
       <div v-for="status in statusList">
         {{ status }}
       </div>
     </div>
     <div>
-      <div>
-        Ci sono {{ genderList.length }} stati e sono:
-        <div v-for="gender in genderList">{{ gender }}</div>
-      </div>
+      Numero generi: {{ genderList.length }}
+      <div v-for="gender in genderList">{{ gender }}</div>
+    </div>
+    <div>
+      Numero specie: {{ speciesList.length }}
+      <div v-for="specie in speciesList">{{ specie }}</div>
     </div>
   </div>
   <form action="" @submit.prevent="searchClick">
@@ -104,6 +106,16 @@ export default {
         }
       });
       return gender;
+    },
+
+    speciesList() {
+      const species = [];
+      this.store.characterList.forEach((char) => {
+        if (!species.includes(char.species)) {
+          species.push(char.species);
+        }
+      });
+      return species;
     },
   },
 };
