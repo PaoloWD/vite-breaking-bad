@@ -27,6 +27,7 @@ export default {
     <HeaderNav></HeaderNav>
     <div class="container bg-white p-5">
       <FilterComp @search="onSearch"></FilterComp>
+
       <MainContainer></MainContainer>
     </div>
   </div>

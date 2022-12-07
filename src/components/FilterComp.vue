@@ -1,6 +1,10 @@
 <template>
-  <div>Trovati {{ store.info.count }} personaggi</div>
-  <div class="bg-black text-white d-flex justify-content-between gap-5 p-3">
+  <div class="text-center fw-bold mb-3">
+    Trovati {{ store.info.count }} personaggi
+  </div>
+  <div
+    class="bg-black text-white d-flex justify-content-between gap-5 p-3 mb-5"
+  >
     <div>
       numero stati: {{ statusList.length }}
       <div v-for="status in statusList">
@@ -22,7 +26,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Filtro nome"
+          placeholder="Names"
           name="name"
           v-model="filters.name"
         />
@@ -31,7 +35,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Filtro stato"
+          placeholder="Status"
           name="status"
           v-model="filters.status"
         />
@@ -40,7 +44,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Filtro specie"
+          placeholder="Species"
           name="species"
           v-model="filters.species"
         />
@@ -49,7 +53,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Filtro tipo"
+          placeholder="Types"
           name="type"
           v-model="filters.type"
         />
@@ -58,13 +62,15 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Filtro genere"
+          placeholder="Genders"
           name="gender"
           v-model="filters.gender"
         />
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Cerca</button>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary my-3">Search</button>
+    </div>
   </form>
 </template>
 <script>
