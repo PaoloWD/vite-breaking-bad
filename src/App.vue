@@ -1,5 +1,5 @@
 <script>
-import { store } from "../src/store";
+import { fetchCharacters, store } from "../src/store";
 import HeaderNav from "../src/components/HeaderNav.vue";
 import MainContainer from "./components/MainContainer.vue";
 import FilterComp from "./components/FilterComp.vue";
@@ -12,6 +12,12 @@ export default {
       store,
     };
   },
+  methods: {
+    onSearch(filter) {
+      this.store.activeFilters = filter;
+      fetchCharacters();
+    },
+  },
 };
 </script>
 
@@ -20,7 +26,7 @@ export default {
   <div class="bg-body-1">
     <HeaderNav></HeaderNav>
     <div class="container bg-white p-5">
-      <FilterComp></FilterComp>
+      <FilterComp @search="onSearch"></FilterComp>
       <MainContainer></MainContainer>
     </div>
   </div>

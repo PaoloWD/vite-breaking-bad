@@ -22,6 +22,7 @@ export default {
       store,
     };
   },
+  methods: {},
   created() {
     fetchCharacters();
   },
