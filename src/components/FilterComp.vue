@@ -1,8 +1,18 @@
 <template>
-  <div class="bg-black text-white d-flex justify-content-between p-3">
-    <div>Trovati {{ store.info.count }} personaggi</div>
-    <div>Ci sono {{ statusList.length }} stati e sono: {{ statusList }}</div>
-    <div>Ci sono {{ genderList.length }} stati e sono: {{ genderList }}</div>
+  <div>Trovati {{ store.info.count }} personaggi</div>
+  <div class="bg-black text-white d-flex gap-3 p-3">
+    <div>
+      Ci sono {{ statusList.length }} stati e sono:
+      <div v-for="status in statusList">
+        {{ status }}
+      </div>
+    </div>
+    <div>
+      <div>
+        Ci sono {{ genderList.length }} stati e sono:
+        <div v-for="gender in genderList">{{ gender }}</div>
+      </div>
+    </div>
   </div>
   <form action="" @submit.prevent="searchClick">
     <div class="row">
