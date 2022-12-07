@@ -1,6 +1,8 @@
 <template>
-  <div class="bg-black text-white p-3">
-    Trovati {{ store.info.count }} personaggi
+  <div class="bg-black text-white d-flex justify-content-between p-3">
+    <div>Trovati {{ store.info.count }} personaggi</div>
+    <div>Ci sono {{ statusList.length }} stati e sono: {{ statusList }}</div>
+    <div>Ci sono {{ genderList.length }} stati e sono: {{ genderList }}</div>
   </div>
   <form action="" @submit.prevent="searchClick">
     <div class="row">
@@ -50,7 +52,7 @@
         />
       </div>
     </div>
-    <button class="btn btn-primary">Cerca</button>
+    <button type="submit" class="btn btn-primary">Cerca</button>
   </form>
 </template>
 <script>
@@ -71,6 +73,27 @@ export default {
   methods: {
     searchClick() {
       this.$emit("search", { ...this.filters });
+    },
+  },
+  computed: {
+    statusList() {
+      const status = [];
+      this.store.characterList.forEach((char) => {
+        if (!status.includes(char.status)) {
+          status.push(char.status);
+        }
+      });
+      return status;
+    },
+
+    genderList() {
+      const gender = [];
+      this.store.characterList.forEach((char) => {
+        if (!gender.includes(char.gender)) {
+          gender.push(char.gender);
+        }
+      });
+      return gender;
     },
   },
 };
