@@ -1,6 +1,6 @@
 <template>
   <div>Trovati {{ store.info.count }} personaggi</div>
-  <div class="bg-black text-white d-flex gap-5 p-3">
+  <div class="bg-black text-white d-flex justify-content-between gap-5 p-3">
     <div>
       numero stati: {{ statusList.length }}
       <div v-for="status in statusList">
